@@ -137,23 +137,25 @@ class ScrollableTabBar extends React.PureComponent {
                 onPress={() => this.goToPage(page)}
               >
                 <View style={[styles.tabContainer, tabTextContainerStyle, isTabActive && tabTextContainerActiveStyle]}>
-                  <Text
-                    // eslint-disable-next-line no-return-assign
-                    onLayout={({
-                      nativeEvent: {
-                        layout: { width }
-                      }
-                    }) => {
-                      const newWidth = [...tabUnderlineWidth]
-                      newWidth[page] = width
-                      this.setState({
-                        tabUnderlineWidth: newWidth
-                      })
-                    }}
-                    style={[styles.tabText, tabTextStyle, isTabActive && tabTextActiveStyle]}
-                  >
-                    {tab.title}
-                  </Text>
+                  {tab.title ? (
+                    <Text
+                      // eslint-disable-next-line no-return-assign
+                      onLayout={({
+                        nativeEvent: {
+                          layout: { width }
+                        }
+                      }) => {
+                        const newWidth = [...tabUnderlineWidth]
+                        newWidth[page] = width
+                        this.setState({
+                          tabUnderlineWidth: newWidth
+                        })
+                      }}
+                      style={[styles.tabText, tabTextStyle, isTabActive && tabTextActiveStyle]}
+                    ></Text>
+                  ) : (
+                    tab.tab
+                  )}
                 </View>
               </TouchableOpacity>
             )
