@@ -1,15 +1,6 @@
 import React, { Component } from 'react'
-import { arrayOf, bool, func, node, number, shape, string, oneOfType } from 'prop-types'
-import {
-  Dimensions,
-  ImageBackground,
-  ScrollView,
-  View,
-  Animated,
-  Easing,
-  ViewPropTypes,
-  Image
-} from 'react-native'
+import { arrayOf, bool, func, node, number, shape, string, oneOfType, element } from 'prop-types'
+import { Dimensions, ImageBackground, ScrollView, View, Animated, Easing, ViewPropTypes, Image } from 'react-native'
 import { ScrollableTabBar, ScrollableTabView } from './components'
 import { constants } from './constants'
 import styles from './styles'
@@ -275,7 +266,8 @@ class StickyParallaxHeader extends Component {
       tabTextContainerActiveStyle,
       tabsContainerBackgroundColor,
       tabWrapperStyle,
-      tabsContainerStyle
+      tabsContainerStyle,
+      TabWrapper
     } = this.props
     const { scrollValue, currentPage, containerWidth } = this.state
 
@@ -291,7 +283,8 @@ class StickyParallaxHeader extends Component {
       tabsContainerBackgroundColor,
       tabs,
       tabWrapperStyle,
-      tabsContainerStyle
+      tabsContainerStyle,
+      TabWrapper
     }
 
     return <ScrollableTabBar {...props} />
@@ -364,15 +357,11 @@ class StickyParallaxHeader extends Component {
               style={[
                 styles.overScrollPadding,
                 {
-                  backgroundColor: isArray
-                    ? arrayHeaderStyle.backgroundColor
-                    : headerStyle?.backgroundColor
+                  backgroundColor: isArray ? arrayHeaderStyle.backgroundColor : headerStyle?.backgroundColor
                 }
               ]}
             />
-            {backgroundImage
-              ? this.renderImageBackground(scrollHeight)
-              : this.renderPlainBackground(scrollHeight)}
+            {backgroundImage ? this.renderImageBackground(scrollHeight) : this.renderPlainBackground(scrollHeight)}
             {this.renderForeground(scrollHeight)}
           </View>
           {shouldRenderTabs && this.renderTabs()}

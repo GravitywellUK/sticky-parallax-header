@@ -2,7 +2,7 @@
 /* eslint-disable no-return-assign */
 import React from 'react'
 import { Animated, Text, TouchableOpacity, View, ScrollView, ViewPropTypes } from 'react-native'
-import { array, func, number, object, shape, string } from 'prop-types'
+import { array, func, number, object, shape, string, element } from 'prop-types'
 import { constants } from '../../constants'
 import styles from './ScrollableTabBar.styles'
 
@@ -83,7 +83,8 @@ class ScrollableTabBar extends React.PureComponent {
       tabTextContainerActiveStyle,
       tabsContainerBackgroundColor,
       tabWrapperStyle,
-      tabsContainerStyle
+      tabsContainerStyle,
+      TabWrapper
     } = this.props
     const { tabUnderlineWidth } = this.state
 
@@ -104,15 +105,8 @@ class ScrollableTabBar extends React.PureComponent {
       outputRange: [0, tabWidth]
     })
 
-    return (
-      <View
-        style={[
-          styles.container,
-          {
-            backgroundColor: tabsContainerBackgroundColor
-          }
-        ]}
-      >
+    const TabChildren = () => {
+      return (
         <ScrollView
           style={styles.nestedStyle}
           contentContainerStyle={[styles.contentContainer, tabsContainerStyle]}
@@ -173,7 +167,28 @@ class ScrollableTabBar extends React.PureComponent {
             ]}
           />
         </ScrollView>
-      </View>
+      )
+    }
+
+    return (
+      <>
+        {TabWrapper ? (
+          <TabWrapper>
+            <TabChildren />
+          </TabWrapper>
+        ) : (
+          <View
+            style={[
+              styles.container,
+              {
+                backgroundColor: tabsContainerBackgroundColor
+              }
+            ]}
+          >
+            <TabChildren />
+          </View>
+        )}
+      </>
     )
   }
 }
