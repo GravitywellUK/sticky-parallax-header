@@ -1,11 +1,15 @@
-import { ReactElement, Component } from 'react'
 import {
+  Component,
+  ReactElement
+} from 'react'
+
+import {
+  ImageResizeMode,
   ImageSourcePropType,
   NativeScrollEvent,
   NativeSyntheticEvent,
   TextStyle,
-  ViewStyle,
-  ImageResizeMode
+  ViewStyle
 } from 'react-native'
 
 export interface HeaderTypeProp {
@@ -49,33 +53,32 @@ export interface TabsSharedProps {
   tabsContainerStyle?: ViewStyle
 }
 
-export type TabbedHeaderProps = SharedProps &
-  TabsSharedProps & {
-    headerType: 'TabbedHeader'
-    backgroundColor?: string
-    foregroundImage?: ImageSourcePropType
-    header?: () => ReactElement
-    logo?: ImageSourcePropType
-    logoContainerStyle?: ViewStyle
-    logoResizeMode?: ImageResizeMode
-    logoStyle?: ViewStyle
-    renderBody?: (title: string) => ReactElement
-    scrollEvent?: (event: NativeSyntheticEvent<NativeScrollEvent>) => void
-    title?: string
-    titleStyle?: TextStyle
-  }
+export type DetailsHeaderProps = SharedProps & IconProps & {
+  headerType: 'DetailsHeader'
+  backgroundColor?: string
+  hasBorderRadius?: boolean
+  iconNumber?: number
+  image?: number
+  renderBody?: (title: string) => ReactElement
+  tag?: string
+  title?: string
+}
 
-export type DetailsHeaderProps = SharedProps &
-  IconProps & {
-    headerType: 'DetailsHeader'
-    backgroundColor?: string
-    hasBorderRadius?: boolean
-    iconNumber?: number
-    image?: number
-    renderBody?: (title: string) => ReactElement
-    tag?: string
-    title?: string
-  }
+export type TabbedHeaderProps = SharedProps & TabsSharedProps & {
+  headerType: 'TabbedHeader';
+  backgroundColor?: string;
+  foregroundImage?: ImageSourcePropType;
+  header?: () => ReactElement;
+  logo?: ImageSourcePropType;
+  logoContainerStyle?: ViewStyle;
+  logoResizeMode?: ImageResizeMode;
+  logoStyle?: ViewStyle;
+  rememberTabScrollPosition?: boolean;
+  renderBody?: (title: string) => ReactElement;
+  scrollEvent?: (event: NativeSyntheticEvent<NativeScrollEvent>) => void;
+  title?: string;
+  titleStyle?: TextStyle;
+}
 
 export type AvatarHeaderProps = SharedProps &
   IconProps & {

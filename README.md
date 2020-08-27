@@ -88,6 +88,7 @@ Below are examples of those components and description of the props they are acc
 | `tabTextContainerActiveStyle` |`ViewPropTypes.style`                                  |    Yes   |`{backgroundColor: colors.darkMint}`                                                                                                                                                            | Set active tab container style                           |
 | `tabWrapperStyle`             |`ViewPropTypes.style`                                  |    Yes   |`{paddingVertical: 12}`                                                                                                                                                                         | Set single tab container style                           |
 | `tabsContainerStyle`          |`ViewPropTypes.style`                                  |    Yes   |                                                                                                                                                                                                | Set whole tab bar container style                        |
+| `rememberTabScrollPosition`   |`bool`                                                 |    Yes   |`false`                                                                                                                                                                                         | When switching between tabs remember current scroll position                        |
 | `header`                      |`func`                                                 |    Yes   |                                                                                                                                                                                                | Fuction that renders custom header                       |
 | `scrollEvent`                 |`func`                                                 |    Yes   |                                                                                                                                                                                                | Scroll event to apply custom animations                  |
 | `onRef`                 |`func`                                                 |    Yes   |                                                                                                                                                                                                | Reference callback. You can call goToPage(pageNumber) method through ref to programatically navigate to given tab                |
@@ -149,6 +150,11 @@ Below are examples of those components and description of the props they are acc
 ## Custom Header 
 
 [Custom header props and example](docs/CUSTOM.md)
+
+## Handling nested scrollables 
+
+[Handling nested flatlist props and example](docs/CUSTOM.md#Tips)
+
 
 <h1 id="Getting-Started">Getting Started</h1>
 
