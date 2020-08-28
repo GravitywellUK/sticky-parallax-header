@@ -17,6 +17,7 @@ module.exports = {
     'react/prop-types': ['error', { ignore: ['navigation', 't', 'i18n'] }],
     'react/jsx-no-bind': 0,
     'react/jsx-wrap-multilines': 0,
+    'react/jsx-props-no-spreading': 0,
     'react/require-default-props': 0,
     'react-native/no-unused-styles': 2,
     'react-native/split-platform-components': 2,
@@ -36,7 +37,7 @@ module.exports = {
         maxBOF: 0
       }
     ],
-    semi: ['error', 'never'],
+    semi: ['error', 'always'],
     'comma-dangle': ['error', 'never'],
     'no-useless-constructor': 0,
     'object-curly-newline': 0,

@@ -1,7 +1,7 @@
-import { StyleSheet, Platform } from 'react-native'
-import { ifIphoneX } from '../utils'
-import colors from './colors'
-import constants from './constants'
+import { StyleSheet, Platform } from 'react-native';
+import { ifIphoneX } from '../utils';
+import colors from './colors';
+import constants from './constants';
 
 const screenStyles = StyleSheet.create({
   container: {
@@ -66,6 +66,6 @@ const screenStyles = StyleSheet.create({
   foregroundText: {
     color: colors.white
   }
-})
+});
 
-export default screenStyles
+export default screenStyles;

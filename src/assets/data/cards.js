@@ -22,7 +22,7 @@ export const cardsReact = [
       { number: 'B', question: 'Props', value: false, revealed: false, picked: false }
     ]
   }
-]
+];
 
 const cardsAgile = [
   {
@@ -47,8 +47,7 @@ const cardsAgile = [
       },
       {
         number: 'C',
-        question:
-          'When it becomes clear that not everything will be finished by the end of the Sprint',
+        question: 'When it becomes clear that not everything will be finished by the end of the Sprint',
         value: false,
         revealed: false,
         picked: false
@@ -86,8 +85,7 @@ const cardsAgile = [
     cards: [
       {
         number: 'A',
-        question:
-          'Complete the project as estimated when the date and cost are committed to the Product Owner',
+        question: 'Complete the project as estimated when the date and cost are committed to the Product Owner',
         value: true,
         revealed: false,
         picked: false
@@ -110,7 +108,7 @@ const cardsAgile = [
       }
     ]
   }
-]
+];
 
 const cardsDesign = [
   {
@@ -144,7 +142,7 @@ const cardsDesign = [
       { number: 'C', question: 'Amphibian', value: false, revealed: false, picked: false }
     ]
   }
-]
+];
 
 const Brandon = {
   cardsAmount: 10,
@@ -154,9 +152,9 @@ const Brandon = {
   cards: cardsDesign,
   color: 'rgb(78,15,255)',
   labelColor: 'rgb(89,80,249)',
-  image: require('../../assets/images/photosPortraitBrandon.png'),
+  image: require('../images/photosPortraitBrandon.png'),
   about: 'Coffee buff. Web enthusiast. Unapologetic student. Gamer. Avid organizer.'
-}
+};
 
 const Ewa = {
   cardsAmount: 31,
@@ -166,9 +164,9 @@ const Ewa = {
   cards: cardsAgile,
   color: 'rgb(138,85,192)',
   labelColor: 'rgb(163,109,217)',
-  image: require('../../assets/images/photosPortraitEwa.png'),
+  image: require('../images/photosPortraitEwa.png'),
   about: 'Wannabe entrepreneur. Reader. Devoted organizer. Social media lover. Analyst.'
-}
+};
 
 const Jennifer = {
   cardsAmount: 16,
@@ -178,8 +176,8 @@ const Jennifer = {
   cards: cardsReact,
   color: 'rgb(255,94,107)',
   labelColor: 'rgb(255,130,140)',
-  image: require('../../assets/images/photosPortraitJennifer.png'),
+  image: require('../images/photosPortraitJennifer.png'),
   about: 'Web nerd. Alcohol trailblazer. Organizer. Hipster-friendly explorer.'
-}
+};
 
-export { Brandon, Ewa, Jennifer }
+export { Brandon, Ewa, Jennifer };

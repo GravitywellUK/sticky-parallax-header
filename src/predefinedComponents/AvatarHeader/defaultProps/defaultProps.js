@@ -1,14 +1,14 @@
-import React, { useState } from 'react'
-import { View, Text, Platform } from 'react-native'
-import { shape } from 'prop-types'
-import { QuizListElement } from '../../components'
-import { sizes, constants } from '../../../constants'
-import styles from '../../TabbedHeader/TabbedHeader.styles'
-import { Brandon } from '../../../assets/data/cards'
+import React, { useState } from 'react';
+import { View, Text, Platform } from 'react-native';
+import { shape } from 'prop-types';
+import { QuizListElement } from '../../components';
+import { sizes, constants } from '../../../constants';
+import styles from '../../TabbedHeader/TabbedHeader.styles';
+import { Brandon } from '../../../assets/data/cards';
 
 const RenderContent = ({ user }) => {
-  const [contentHeight, setContentHeight] = useState('')
-  const title = "Author's Quizes"
+  const [contentHeight, setContentHeight] = useState('');
+  const title = "Author's Quizes";
   const cards = [
     {
       id: '4850294857',
@@ -18,32 +18,32 @@ const RenderContent = ({ user }) => {
       labelText: user.type,
       imageSource: user.image
     }
-  ]
+  ];
 
   const calcMargin = () => {
-    let marginBottom = 0
+    let marginBottom = 0;
 
     if (contentHeight) {
-      const padding = 24
-      const isBigContent = constants.deviceHeight - contentHeight < 0
+      const padding = 24;
+      const isBigContent = constants.deviceHeight - contentHeight < 0;
 
       if (isBigContent) {
-        return marginBottom
+        return marginBottom;
       }
 
-      marginBottom = constants.deviceHeight - padding - sizes.headerHeight - contentHeight
+      marginBottom = constants.deviceHeight - padding - sizes.headerHeight - contentHeight;
 
-      return marginBottom
+      return marginBottom;
     }
 
-    return marginBottom
-  }
+    return marginBottom;
+  };
 
   const onLayoutContent = (e) => {
-    setContentHeight(e.nativeEvent.layout.height)
-  }
+    setContentHeight(e.nativeEvent.layout.height);
+  };
 
-  const marginContentBottom = Platform.select({ ios: calcMargin(), android: 0 })
+  const marginContentBottom = Platform.select({ ios: calcMargin(), android: 0 });
 
   return (
     <View
@@ -57,7 +57,7 @@ const RenderContent = ({ user }) => {
       ]}
     >
       <Text style={styles.contentText}>{title}</Text>
-      {cards.map(card => (
+      {cards.map((card) => (
         <QuizListElement
           key={card.id}
           elements={card.elements}
@@ -68,15 +68,15 @@ const RenderContent = ({ user }) => {
         />
       ))}
     </View>
-  )
-}
+  );
+};
 
 RenderContent.propTypes = {
   user: shape({})
-}
+};
 
 RenderContent.defaultProps = {
   user: Brandon
-}
+};
 
-export default RenderContent
+export default RenderContent;

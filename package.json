@@ -34,10 +34,5 @@
     "husky": "^4.2.3",
     "prettier": "^2.0.2",
     "release-it": "^13.5.1"
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
   }
 }

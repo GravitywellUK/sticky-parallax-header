@@ -1,6 +1,6 @@
-import { StyleSheet, Platform } from 'react-native'
-import { ifIphoneX } from '../../utils'
-import { colors, constants, screenStyles } from '../../constants'
+import { StyleSheet, Platform } from 'react-native';
+import { ifIphoneX } from '../../utils';
+import { colors, constants, screenStyles } from '../../constants';
 
 export default StyleSheet.create({
   ...screenStyles,
@@ -65,15 +65,15 @@ export default StyleSheet.create({
     marginTop: 12,
     paddingBottom: 8
   },
-  rightHeaderButton: { 
+  rightHeaderButton: {
     flex: 1,
-    alignItems: 'flex-end' 
+    alignItems: 'flex-end'
   },
   leftHeaderButton: {
-    flex: 1,
+    flex: 1
   },
   foregroundTitle: {
     flexGrow: 1,
-    paddingRight: 12,
+    paddingRight: 12
   }
-})
+});

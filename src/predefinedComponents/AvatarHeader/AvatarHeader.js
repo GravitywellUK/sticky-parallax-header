@@ -1,37 +1,37 @@
-import React from 'react'
-import { Text, View, Image, TouchableOpacity, Animated, StatusBar } from 'react-native'
-import { func, string, number, bool, oneOfType } from 'prop-types'
-import StickyParallaxHeader from '../../index'
-import { constants, sizes } from '../../constants'
-import styles from './AvatarHeader.styles'
-import { Brandon } from '../../assets/data/cards'
-import RenderContent from './defaultProps/defaultProps'
+import React from 'react';
+import { Text, View, Image, TouchableOpacity, Animated, StatusBar } from 'react-native';
+import { func, string, number, bool, oneOfType } from 'prop-types';
+import StickyParallaxHeader from '../../index';
+import { constants, sizes } from '../../constants';
+import styles from './AvatarHeader.styles';
+import { Brandon } from '../../assets/data/cards';
+import RenderContent from './defaultProps/defaultProps';
 
-const { event, ValueXY } = Animated
+const { event, ValueXY } = Animated;
 
-const finishImgPosition = 31
-const startImgPosition = 27
+const finishImgPosition = 31;
+const startImgPosition = 27;
 
 class AvatarHeader extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       headerLayout: {
         height: 0
       }
-    }
-    this.scrollY = new ValueXY()
+    };
+    this.scrollY = new ValueXY();
   }
 
-  setHeaderSize = (headerLayout) => this.setState({ headerLayout })
+  setHeaderSize = (headerLayout) => this.setState({ headerLayout });
 
   scrollPosition(value) {
     const {
       headerLayout: { height }
-    } = this.state
+    } = this.state;
 
-    return constants.scrollPosition(height, value)
+    return constants.scrollPosition(height, value);
   }
 
   renderAvatarHeader = () => {
@@ -43,29 +43,29 @@ class AvatarHeader extends React.Component {
       image,
       backgroundColor,
       title
-    } = this.props
+    } = this.props;
 
     const [beforeFadeImg, startFadeImg, finishFadeImg] = [
       this.scrollPosition(30),
       this.scrollPosition(40),
       this.scrollPosition(70)
-    ]
+    ];
     const [beforeFadeName, startFadeName, finishFadeName] = [
       this.scrollPosition(50),
       this.scrollPosition(60),
       this.scrollPosition(75)
-    ]
+    ];
 
     const imageOpacity = this.scrollY.y.interpolate({
       inputRange: [0, beforeFadeImg, startFadeImg, finishFadeImg],
       outputRange: [0, 0, 0.5, 1],
       extrapolate: 'clamp'
-    })
+    });
     const nameOpacity = this.scrollY.y.interpolate({
       inputRange: [0, beforeFadeName, startFadeName, finishFadeName],
       outputRange: [0, 0, 0.5, 1],
       extrapolate: 'clamp'
-    })
+    });
 
     return (
       <View style={[styles.headerWrapper, styles.userModalHeader, { backgroundColor }]}>
@@ -84,49 +84,49 @@ class AvatarHeader extends React.Component {
           </TouchableOpacity>
         </View>
       </View>
-    )
-  }
+    );
+  };
 
   renderHeader = () => {
-    const { header } = this.props
-    const renderHeader = header || this.renderAvatarHeader
+    const { header } = this.props;
+    const renderHeader = header || this.renderAvatarHeader;
 
-    return renderHeader()
-  }
+    return renderHeader();
+  };
 
   renderAvatarForeground = () => {
-    const { image, subtitle, title } = this.props
-    const startSize = constants.responsiveWidth(18)
-    const endSize = constants.responsiveWidth(12)
+    const { image, subtitle, title } = this.props;
+    const startSize = constants.responsiveWidth(18);
+    const endSize = constants.responsiveWidth(12);
 
     const [startImgAnimation, finishImgAnimation] = [
       this.scrollPosition(startImgPosition),
       this.scrollPosition(finishImgPosition)
-    ]
-    const [startAuthorFade, finishAuthorFade] = [this.scrollPosition(40), this.scrollPosition(50)]
+    ];
+    const [startAuthorFade, finishAuthorFade] = [this.scrollPosition(40), this.scrollPosition(50)];
 
-    const [startAboutFade, fininshAboutFade] = [this.scrollPosition(60), this.scrollPosition(70)]
+    const [startAboutFade, fininshAboutFade] = [this.scrollPosition(60), this.scrollPosition(70)];
 
     const imageOpacity = this.scrollY.y.interpolate({
       inputRange: [0, startImgAnimation, finishImgAnimation],
       outputRange: [1, 0.8, 0],
       extrapolate: 'clamp'
-    })
+    });
     const imageSize = this.scrollY.y.interpolate({
       inputRange: [0, startImgAnimation, finishImgAnimation],
       outputRange: [startSize, startSize, endSize],
       extrapolate: 'clamp'
-    })
+    });
     const authorOpacity = this.scrollY.y.interpolate({
       inputRange: [0, startAuthorFade, finishAuthorFade],
       outputRange: [1, 1, 0],
       extrapolate: 'clamp'
-    })
+    });
     const aboutOpacity = this.scrollY.y.interpolate({
       inputRange: [0, startAboutFade, fininshAboutFade],
       outputRange: [1, 1, 0],
       extrapolate: 'clamp'
-    })
+    });
 
     return (
       <View style={styles.foreground}>
@@ -142,29 +142,29 @@ class AvatarHeader extends React.Component {
           <Text style={styles.infoText}>{subtitle}</Text>
         </Animated.View>
       </View>
-    )
-  }
+    );
+  };
 
   renderForeground = () => {
-    const { foreground } = this.props
-    const renderForeground = foreground || this.renderAvatarForeground
+    const { foreground } = this.props;
+    const renderForeground = foreground || this.renderAvatarForeground;
 
-    return renderForeground()
-  }
+    return renderForeground();
+  };
 
   renderBackground = () => {
     const {
       headerLayout: { height }
-    } = this.state
-    const { backgroundColor, hasBorderRadius } = this.props
+    } = this.state;
+    const { backgroundColor, hasBorderRadius } = this.props;
 
     const headerBorderRadius = this.scrollY.y.interpolate({
       inputRange: [0, height],
       outputRange: [80, 0],
       extrapolate: 'extend'
-    })
+    });
 
-    const borderBottomRightRadius = hasBorderRadius ? headerBorderRadius : 0
+    const borderBottomRightRadius = hasBorderRadius ? headerBorderRadius : 0;
 
     return (
       <Animated.View
@@ -176,8 +176,8 @@ class AvatarHeader extends React.Component {
           }
         ]}
       />
-    )
-  }
+    );
+  };
 
   render() {
     const {
@@ -193,7 +193,7 @@ class AvatarHeader extends React.Component {
       snapStopThreshold,
       snapValue,
       transparentHeader
-    } = this.props
+    } = this.props;
 
     return (
       <>
@@ -221,7 +221,7 @@ class AvatarHeader extends React.Component {
           {renderBody(Brandon)}
         </StickyParallaxHeader>
       </>
-    )
+    );
   }
 }
 
@@ -248,7 +248,7 @@ AvatarHeader.propTypes = {
   snapStopThreshold: oneOfType([bool, number]),
   snapValue: oneOfType([bool, number]),
   transparentHeader: bool
-}
+};
 AvatarHeader.defaultProps = {
   leftTopIconOnPress: () => {},
   rightTopIconOnPress: () => {},
@@ -266,6 +266,6 @@ AvatarHeader.defaultProps = {
   hasBorderRadius: true,
   parallaxHeight: sizes.userScreenParallaxHeader,
   transparentHeader: false
-}
+};
 
-export default AvatarHeader
+export default AvatarHeader;

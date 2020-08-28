@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   container: {
@@ -26,4 +26,4 @@ export default StyleSheet.create({
   nestedStyle: {
     alignSelf: 'center'
   }
-})
+});

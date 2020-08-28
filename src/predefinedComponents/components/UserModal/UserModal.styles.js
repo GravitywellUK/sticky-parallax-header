@@ -1,6 +1,6 @@
-import { StyleSheet, Platform } from 'react-native'
-import { ifIphoneX } from '../../../utils'
-import { colors, constants, screenStyles } from '../../../constants'
+import { StyleSheet, Platform } from 'react-native';
+import { ifIphoneX } from '../../../utils';
+import { colors, constants, screenStyles } from '../../../constants';
 
 export default StyleSheet.create({
   ...screenStyles,
@@ -61,4 +61,4 @@ export default StyleSheet.create({
   userModalMessageContainer: {
     paddingBottom: 8
   }
-})
+});

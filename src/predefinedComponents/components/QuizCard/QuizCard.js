@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
-import { View, Text, TouchableOpacity } from 'react-native'
-import { func, string, shape, bool, number } from 'prop-types'
-import styles from './QuizCard.styles'
-import QuizOption from '../QuizOption/QuizOption'
+import React, { useState } from 'react';
+import { View, Text, TouchableOpacity } from 'react-native';
+import { func, string, shape, bool, number } from 'prop-types';
+import styles from './QuizCard.styles';
+import QuizOption from '../QuizOption/QuizOption';
 
 const QuizCard = ({ data: { question, cards }, num, onPress, cardsAmount }) => {
-  const [revealed, setRevealed] = useState(false)
+  const [revealed, setRevealed] = useState(false);
 
   return (
     <TouchableOpacity onPress={onPress} style={styles.container} activeOpacity={0.95}>
@@ -17,19 +17,19 @@ const QuizCard = ({ data: { question, cards }, num, onPress, cardsAmount }) => {
       <View>
         <Text style={styles.mainText}>{question}</Text>
       </View>
-      {cards.map(card => (
+      {cards.map((card) => (
         <QuizOption
           key={card.question}
           reveal={() => {
-            setRevealed(true)
+            setRevealed(true);
           }}
           revealed={revealed}
           card={card}
         />
       ))}
     </TouchableOpacity>
-  )
-}
+  );
+};
 
 QuizCard.propTypes = {
   onPress: func,
@@ -42,6 +42,6 @@ QuizCard.propTypes = {
   }),
   num: number,
   cardsAmount: number
-}
+};
 
-export default QuizCard
+export default QuizCard;

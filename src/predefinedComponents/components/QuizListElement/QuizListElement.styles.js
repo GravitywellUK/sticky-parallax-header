@@ -1,5 +1,5 @@
-import { StyleSheet, Platform } from 'react-native'
-import { colors, constants } from '../../../constants'
+import { StyleSheet, Platform } from 'react-native';
+import { colors, constants } from '../../../constants';
 
 export default StyleSheet.create({
   container: {
@@ -97,4 +97,4 @@ export default StyleSheet.create({
   iconCardElement: {
     paddingLeft: 8
   }
-})
+});
