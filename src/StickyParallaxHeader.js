@@ -1,9 +1,30 @@
 import React, { Component } from 'react';
 
-import { arrayOf, bool, func, node, number, oneOfType, shape, string } from 'prop-types';
-import { Animated, Dimensions, Easing, Image, ImageBackground, ScrollView, View, ViewPropTypes } from 'react-native';
+import {
+  arrayOf,
+  bool,
+  func,
+  node,
+  number,
+  oneOfType,
+  shape,
+  string
+} from 'prop-types';
+import {
+  Animated,
+  Dimensions,
+  Easing,
+  Image,
+  ImageBackground,
+  ScrollView,
+  View,
+  ViewPropTypes
+} from 'react-native';
 
-import { ScrollableTabBar, ScrollableTabView } from './components';
+import {
+  ScrollableTabBar,
+  ScrollableTabView
+} from './components';
 import { constants } from './constants';
 import styles from './styles';
 import { getSafelyScrollNode } from './utils';
@@ -398,19 +419,18 @@ class StickyParallaxHeader extends Component {
             minScrollHeight={innerScrollHeight}
           >
             {!tabs && children}
-            {tabs &&
-              tabs.map((item) => (
-                <View
-                  tabLabel={item.title}
-                  key={item.title}
-                  onLayout={this.setContentHeight}
-                  ref={(c) => {
-                    this.tab = c;
-                  }}
-                >
-                  {item.content}
-                </View>
-              ))}
+            {!!tabs && tabs.map((item, i) => (
+              <View
+                key={i}
+                tabLabel={item.title || ""}
+                onLayout={this.setContentHeight}
+                ref={(c) => {
+                  this.tab = c;
+                }}
+              >
+                {item.content}
+              </View>
+            ))}
           </ScrollableTabView>
         </AnimatedScrollView>
       </View>
