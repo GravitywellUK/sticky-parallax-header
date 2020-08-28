@@ -2,8 +2,23 @@
 /* eslint-disable no-return-assign */
 import React from 'react';
 
-import { array, func, node, number, object, shape, string } from 'prop-types';
-import { Animated, ScrollView, Text, TouchableOpacity, View, ViewPropTypes } from 'react-native';
+import {
+  array,
+  func,
+  node,
+  number,
+  object,
+  shape,
+  string
+} from 'prop-types';
+import {
+  Animated,
+  ScrollView,
+  Text,
+  TouchableOpacity,
+  View,
+  ViewPropTypes
+} from 'react-native';
 
 import { constants } from '../../constants';
 import styles from './ScrollableTabBar.styles';
@@ -123,7 +138,7 @@ class ScrollableTabBar extends React.PureComponent {
 
           return (
             <TouchableOpacity
-              key={title}
+              key={title || page}
               accessible
               style={tabWrapperStyle}
               accessibilityLabel={title}
