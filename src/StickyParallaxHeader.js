@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import {
   arrayOf,
   bool,
-  element,
   func,
   node,
   number,
@@ -463,7 +462,7 @@ StickyParallaxHeader.propTypes = {
   tabs: arrayOf(shape({})),
   tabsContainerBackgroundColor: string,
   tabWrapperStyle: ViewPropTypes.style,
-  TabWrapper: element,
+  TabWrapper: func,
   tabsContainerStyle: ViewPropTypes.style,
   snapStartThreshold: oneOfType([bool, number]),
   snapStopThreshold: oneOfType([bool, number]),

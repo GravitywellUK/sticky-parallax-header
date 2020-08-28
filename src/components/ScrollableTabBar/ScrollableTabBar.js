@@ -5,7 +5,6 @@ import React from 'react';
 import {
   array,
   func,
-  node,
   number,
   object,
   shape,
@@ -217,6 +216,6 @@ ScrollableTabBar.propTypes = {
   tabsContainerBackgroundColor: string,
   tabWrapperStyle: ViewPropTypes.style,
   tabsContainerStyle: ViewPropTypes.style,
-  TabWrapper: node
+  TabWrapper: func
 };
 export default ScrollableTabBar;
