@@ -1,19 +1,23 @@
 import {
   Component,
   ReactElement
-} from 'react'
+} from 'react';
 
 import {
+  HeaderTypeProp,
   ImageResizeMode,
   ImageSourcePropType,
   NativeScrollEvent,
   NativeSyntheticEvent,
+  ScrollView,
   TextStyle,
   ViewStyle
-} from 'react-native'
+} from 'react-native';
 
 export interface HeaderTypeProp {
-  headerType?: 'TabbedHeader' | 'DetailsHeader' | 'AvatarHeader'
+  headerType?: 'TabbedHeader' | 'DetailsHeader' | 'AvatarHeader';
+  keyboardShouldPersistTaps?: 'always' | 'never' | 'handled' | false | true;
+  scrollRef?:(ref:ScrollView)=>void | object;
 }
 
 export interface HeaderSizeProps {
@@ -124,4 +128,4 @@ export type CustomHeaderProps = SharedProps &
 type StickyParallaxHeaderProps = HeaderTypeProp &
   (DetailsHeaderProps | AvatarHeaderProps | TabbedHeaderProps | CustomHeaderProps)
 
-export default class StickyParallaxHeader extends Component<StickyParallaxHeaderProps, any> {}
+export default class StickyParallaxHeader extends Component<StickyParallaxHeaderProps, any> { }
