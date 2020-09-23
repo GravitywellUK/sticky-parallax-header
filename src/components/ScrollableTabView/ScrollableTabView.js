@@ -6,6 +6,7 @@ import {
   func,
   node,
   number,
+  oneOf,
   shape
 } from 'prop-types';
 import {
@@ -267,7 +268,7 @@ ScrollableTabView.propTypes = {
   isHeaderFolded: bool,
   scrollRef: shape({}),
   keyboardShouldPersistTaps: oneOf(['never', 'always', 'handled', false, true, undefined])
-}
+};
 
 ScrollableTabView.defaultProps = {
   contentContainerStyles: {},
@@ -275,6 +276,6 @@ ScrollableTabView.defaultProps = {
   page: -1,
   onChangeTab: () => { },
   keyboardShouldPersistTaps: undefined
-}
+};
 
 export default ScrollableTabView;

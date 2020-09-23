@@ -4,8 +4,10 @@ import {
   arrayOf,
   bool,
   func,
+  instanceOf,
   node,
   number,
+  oneOf,
   oneOfType,
   shape,
   string
@@ -484,7 +486,7 @@ StickyParallaxHeader.propTypes = {
   onTopReached: func,
   scrollRef: oneOfType([func, shape({ current: instanceOf(ScrollView) })]),
   keyboardShouldPersistTaps: oneOf(['never', 'always', 'handled', false, true, undefined])
-}
+};
 
 StickyParallaxHeader.defaultProps = {
   bounces: true,
@@ -507,6 +509,6 @@ StickyParallaxHeader.defaultProps = {
   onRef: null,
   scrollRef: null,
   keyboardShouldPersistTaps: undefined
-}
+};
 
 export default StickyParallaxHeader;
